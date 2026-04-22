@@ -1,0 +1,26 @@
+---
+events:
+  - title: Maibaumaufstellung
+    day: "24"
+    month: "Apr"
+    time: "18:00 Uhr"
+    type: Veranstaltung
+    description: Gemeinsame Maibaumaufstellung mit der Ortsgemeinde
+  - title: Einsatzübung
+    day: "08"
+    month: "Mai"
+    time: "19:30 Uhr"
+    type: Übung
+    description: Regelmäßige Einsatzübung der aktiven Mannschaft
+  - title: Einsatzübung
+    day: "22"
+    month: "Mai"
+    time: "19:30 Uhr"
+    type: Übung
+    description: Regelmäßige Einsatzübung der aktiven Mannschaft
+  - title: Einsatzübung
+    day: "05"
+    month: "Jun"
+    time: "19:30 Uhr"
+    type: Übung
+    description: Regelmäßige Einsatzübung der aktiven Mannschaft

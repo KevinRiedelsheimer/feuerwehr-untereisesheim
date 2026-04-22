@@ -1,0 +1,58 @@
+---
+sections:
+  - id: aktive
+    title: Aktive Mannschaft
+    members:
+      - name: Vorname Nachname
+        role: Kommandant
+        image: ""
+      - name: Vorname Nachname
+        role: Stellv. Kommandant
+        image: ""
+      - name: Vorname Nachname
+        role: Gruppenführer
+        image: ""
+      - name: Vorname Nachname
+        role: Gruppenführer
+        image: ""
+      - name: Vorname Nachname
+        role: Truppführer
+        image: ""
+      - name: Vorname Nachname
+        role: Truppführer
+        image: ""
+      - name: Vorname Nachname
+        role: Feuerwehrmann
+        image: ""
+      - name: Vorname Nachname
+        role: Feuerwehrmann
+        image: ""
+
+  - id: jugend
+    title: Jugendfeuerwehr
+    members:
+      - name: Vorname Nachname
+        role: Jugendfeuerwehrwart
+        image: ""
+      - name: Vorname Nachname
+        role: Stellv. Jugendfeuerwehrwart
+        image: ""
+      - name: Vorname Nachname
+        role: Jugendlicher
+        image: ""
+      - name: Vorname Nachname
+        role: Jugendlicher
+        image: ""
+
+  - id: alters
+    title: Altersabteilung
+    members:
+      - name: Vorname Nachname
+        role: Ehrenmitglied
+        image: ""
+      - name: Vorname Nachname
+        role: Ehrenmitglied
+        image: ""
+      - name: Vorname Nachname
+        role: Ehrenmitglied
+        image: ""

@@ -2,18 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/*Your Custom CSS Goes here*/
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-h1 {
-  @apply text-4xl tracking-tighter mb-3 text-center lg:text-7xl;
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  h1 {
+    @apply font-black tracking-tight;
+  }
+
+  h2 {
+    @apply font-black tracking-tight;
+  }
+
+  h3 {
+    @apply font-bold;
+  }
 }
 
-h3 {
-  @apply text-2xl font-bold mb-3;
-}
-
-/* Syntax Highlighting*/
-
+/* Syntax Highlighting */
 body :not(pre) > code[class*="language-"],
 body pre[class*="language-"] {
   @apply bg-gray-800;

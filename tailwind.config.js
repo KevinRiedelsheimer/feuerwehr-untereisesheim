@@ -1,11 +1,14 @@
 module.exports = {
-  content: ["./**/*.html"],
+  content: ["./src/**/*.html"],
   theme: {
     container: {
       center: true,
     },
     extend: {
       colors: {},
+      fontFamily: {
+        sans: ["Inter", "system-ui", "sans-serif"],
+      },
     },
   },
   variants: {},

@@ -1,9 +1,72 @@
-<footer class="{{ 'fixed' if path == 'home' }} bottom-0 text-center w-full py-4">
-    <small class="text-gray-500">Copyright ©
-        {{settings.name}}
-        2020. Made with ❤ by
-        <a href="{{settings.url}}" target="_blank" class="underline">{{settings.author}}</a>
-        •
-        <a href="https://github.com/surjithctly/neat-starter" class="underline" target="_blank" rel="noopener">View on Github</a>
-    </small>
+<footer class="bg-[#1A1A2E]">
+  <div class="container mx-auto px-6 pt-12 pb-6">
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 bg-[#CC1F1A] rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.66 11.2c-.23-.3-.51-.56-.77-.82-.67-.6-1.43-1.03-2.07-1.66C13.33 7.26 13 4.85 13.95 3c-.95.23-1.78.75-2.49 1.32C8.25 6.65 7.2 10.31 8.14 13.5c.05.16.1.33.1.5 0 .36-.25.69-.6.75-.29.05-.57-.1-.74-.33-.45-.54-.77-1.16-.97-1.83C5.17 14.5 5 16.32 5.97 18c.94 1.61 2.51 2.7 4.28 3 4.24.72 8.75-2.44 8.75-7.07 0-1.04-.27-2.04-.76-2.93-.33-.18-.37-.5-.38-.8z"/>
+            </svg>
+          </div>
+          <div class="leading-tight">
+            <div class="text-white font-black text-sm">Feuerwehr</div>
+            <div class="text-gray-400 text-xs">Untereisesheim</div>
+          </div>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+          Ehrenamtlicher Brandschutz und Hilfe für Untereisesheim und die Region — rund um die Uhr.
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <h4 class="text-white font-bold text-xs uppercase tracking-widest mb-5">Navigation</h4>
+        <ul class="space-y-3">
+          {% for item in navigation.items %}
+            <li>
+              <a href="{{ item.url | url }}" class="text-gray-400 hover:text-white text-sm transition-colors">
+                {{ item.text }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Social & Emergency -->
+      <div>
+        <h4 class="text-white font-bold text-xs uppercase tracking-widest mb-5">Kontakt & Social</h4>
+        <div class="space-y-4">
+          <a href="https://www.facebook.com"
+             class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
+             target="_blank"
+             rel="noopener">
+            <div class="w-8 h-8 bg-white/5 group-hover:bg-white/10 rounded-lg flex items-center justify-center transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+            <span class="text-sm">Facebook</span>
+          </a>
+
+          <div class="mt-6 bg-[#CC1F1A]/10 border border-[#CC1F1A]/20 rounded-xl p-4">
+            <div class="text-2xl font-black text-[#CC1F1A] leading-none mb-1">112</div>
+            <p class="text-gray-400 text-xs">Europäischer Notruf</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-xs text-gray-500">
+      <p>© {{ settings.name }} 2025. Alle Rechte vorbehalten.</p>
+      <div class="flex items-center gap-6">
+        <a href="{{ '/impressum' | url }}" class="hover:text-white transition-colors">Impressum</a>
+        <a href="{{ '/datenschutz' | url }}" class="hover:text-white transition-colors">Datenschutz</a>
+      </div>
+    </div>
+
+  </div>
 </footer>

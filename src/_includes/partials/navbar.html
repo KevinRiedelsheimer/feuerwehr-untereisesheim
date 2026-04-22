@@ -1,33 +1,63 @@
-<div class="{{ 'lg:fixed' if path == 'home' }} w-full">
-    <nav class="flex items-center justify-center lg:justify-between flex-wrap p-6 lg:px-0 container mx-auto" x-data="{ isOpen: false }" @keydown.escape="isOpen = false"  @click.away="isOpen = false">
-        <!--Logo etc-->
-        <div class="flex items-center">
-            <a href="/" class="text-indigo-500 font-bold text-lg">
-                Logo</a>
-        </div>
+<header class="sticky top-0 z-40 bg-[#1A1A2E] shadow-lg" x-data="{ isOpen: false }">
+  <nav class="container mx-auto px-6 flex items-center justify-between h-[68px]">
 
-        <!--Toggle button (hidden on large screens)-->
-        <button @click="isOpen = !isOpen" type="button" class="ml-auto block lg:hidden px-2 text-primary-500 hover:text-primary-500 focus:outline-none focus:text-primary-500" :class="{ 'transition transform-180': isOpen }" aria-label="Menu">
-            <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
-                <path x-show="isOpen" fill-rule="evenodd" clip-rule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"/>
-                <path x-show="!isOpen" fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/>
-            </svg>
-        </button>
+    <!-- Logo -->
+    <a href="{{ '/' | url }}" class="flex items-center gap-3 shrink-0" @click="isOpen = false">
+      <div class="w-9 h-9 bg-[#CC1F1A] rounded-lg flex items-center justify-center">
+        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.66 11.2c-.23-.3-.51-.56-.77-.82-.67-.6-1.43-1.03-2.07-1.66C13.33 7.26 13 4.85 13.95 3c-.95.23-1.78.75-2.49 1.32C8.25 6.65 7.2 10.31 8.14 13.5c.05.16.1.33.1.5 0 .36-.25.69-.6.75-.29.05-.57-.1-.74-.33-.45-.54-.77-1.16-.97-1.83C5.17 14.5 5 16.32 5.97 18c.94 1.61 2.51 2.7 4.28 3 4.24.72 8.75-2.44 8.75-7.07 0-1.04-.27-2.04-.76-2.93-.33-.18-.37-.5-.38-.8z"/>
+        </svg>
+      </div>
+      <div class="leading-tight">
+        <div class="text-white font-black text-sm tracking-tight">Feuerwehr</div>
+        <div class="text-gray-400 text-xs font-medium">Untereisesheim</div>
+      </div>
+    </a>
 
-        <!--Menu-->
-        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto text-center " :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }" x-show.transition="true">
+    <!-- Desktop nav -->
+    <div class="hidden lg:flex items-center gap-1">
+      {% for item in navigation.items %}
+        <a href="{{ item.url | url }}" class="text-gray-300 hover:text-white px-4 py-2 rounded-lg hover:bg-white/10 text-sm font-medium transition-colors">
+          {{ item.text }}
+        </a>
+      {% endfor %}
+      <a href="tel:112" class="ml-3 bg-[#CC1F1A] text-white font-bold px-5 py-2.5 rounded-lg hover:bg-[#A01915] transition-colors text-sm">
+        Notruf 112
+      </a>
+    </div>
 
-            {% if navigation.items %}
+    <!-- Mobile menu button -->
+    <button @click="isOpen = !isOpen"
+            class="lg:hidden text-gray-300 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+            :aria-expanded="isOpen"
+            aria-label="Navigation öffnen">
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path x-show="!isOpen" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        <path x-show="isOpen" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </nav>
 
-                <ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
-                    {% for item in navigation.items %}
-                        <li class="nav__item mr-3">
-                            <a @click="isOpen = false" class="text-ml inline-block text-gray-500 no-underline hover:text-indigo-500 py-2 px-4" href="{{ item.url }}">{{ item.text }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-
-            {% endif %}
-        </div>
-    </nav>
-</div>
+  <!-- Mobile menu -->
+  <div x-show="isOpen"
+       x-transition:enter="transition ease-out duration-150"
+       x-transition:enter-start="opacity-0 -translate-y-1"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       x-transition:leave="transition ease-in duration-100"
+       x-transition:leave-start="opacity-100 translate-y-0"
+       x-transition:leave-end="opacity-0 -translate-y-1"
+       class="lg:hidden bg-[#1A1A2E] border-t border-white/10">
+    <div class="container mx-auto px-6 py-4 flex flex-col gap-1">
+      {% for item in navigation.items %}
+        <a @click="isOpen = false"
+           href="{{ item.url | url }}"
+           class="text-gray-300 hover:text-white px-4 py-3 rounded-lg hover:bg-white/10 font-medium text-sm transition-colors">
+          {{ item.text }}
+        </a>
+      {% endfor %}
+      <a href="tel:112" class="mt-2 bg-[#CC1F1A] text-white font-bold px-5 py-3 rounded-lg hover:bg-[#A01915] transition-colors text-center text-sm">
+        Notruf 112
+      </a>
+    </div>
+  </div>
+</header>

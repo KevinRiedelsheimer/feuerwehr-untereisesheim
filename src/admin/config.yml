@@ -8,7 +8,7 @@ backend:
 media_folder: "src/static/img"
 public_folder: "/static/img"
 
-# Please run "npx netlify-cms-proxy-server" for local backend
+# Please run "npx decap-server" for local backend
 local_backend: true
 # publish_mode: editorial_workflow
 collections:
@@ -66,3 +66,25 @@ collections:
           - { label: Name, name: name, widget: string }
           - { label: Author, name: author, widget: string }
           - { label: URL, name: url, widget: string }
+  - label: "Mannschaft"
+    name: "mannschaft"
+    editor:
+      preview: false
+    files:
+      - label: "Mitglieder"
+        name: "members"
+        file: "src/_data/mannschaft.yaml"
+        fields:
+          - label: Abteilungen
+            name: sections
+            widget: list
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Titel, name: title, widget: string }
+              - label: Mitglieder
+                name: members
+                widget: list
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Funktion, name: role, widget: string }
+                  - { label: Foto, name: image, widget: image, required: false }

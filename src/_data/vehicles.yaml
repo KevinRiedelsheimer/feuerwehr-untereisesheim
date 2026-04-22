@@ -1,0 +1,22 @@
+---
+vehicles:
+  - name: HLF 20
+    type: Hilfeleistungs-Löschgruppenfahrzeug
+    description: Unser leistungsstärkstes Fahrzeug für technische Hilfeleistung und Brandbekämpfung.
+    year: 2018
+  - name: LF 10
+    type: Löschgruppenfahrzeug
+    description: Schnelle Erstversorgung bei Brandeinsätzen und kleineren Hilfeleistungen.
+    year: 2005
+  - name: TLF 16/25
+    type: Tanklöschfahrzeug
+    description: Unabhängige Wasserversorgung in wasserarmen Gebieten und bei Großbränden.
+    year: 1995
+  - name: GW-T
+    type: Gerätewagen-Transport
+    description: Transport von Sondermaterial und technischer Ausrüstung zum Einsatzort.
+    year: 2012
+  - name: MTW
+    type: Mannschaftstransportwagen
+    description: Schneller Transport der Einsatzkräfte sowie Fahrzeug für die Jugendfeuerwehr.
+    year: 2010
