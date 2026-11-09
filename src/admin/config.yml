@@ -1,7 +1,7 @@
 backend:
   # Use netlify identity as backend
   name: git-gateway
-  branch: master
+  branch: main
   ### enable below lines for github integration ###
   # name: github
   # repo: surjithctly/neat-starter
@@ -23,6 +23,7 @@ collections:
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Titelbild", name: "image", widget: "image", required: false, hint: "Optionales Titelbild für den Einsatzbericht. Wird als Vorschaubild in der Übersicht und oben im Beitrag angezeigt." }
       - { label: "Body", name: "body", widget: "markdown" }
       - widget: select
         label: "tags"
